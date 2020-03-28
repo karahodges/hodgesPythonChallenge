@@ -1,0 +1,73 @@
+import os 
+import csv
+
+File = os.path.join("election_data.csv")
+
+votes_cast = 0
+percent_votes = 0
+total_votes_for_cand = 0
+candidates = []
+khan_votes=[]
+candidates_votes = []
+winner = ""
+correy_votes= []
+li_votes=[]
+otooley_votes= []
+
+with open(File) as data:
+    csvreader= csv.reader(data, delimiter = ",")
+    header = next(csvreader)
+    for row in csvreader:
+        voterid = row[0]
+        if row [2] not in candidates:
+            candidates.append(row[2])
+        else:
+            candidates_votes.append(row[2])
+
+with open(File) as data:
+    csvreader= csv.reader(data, delimiter = ",")
+    header = next(csvreader)
+    for row in csvreader:
+        total_votes_for_cand= row [2]
+        if total_votes_for_cand== "Khan":
+            khan_votes.append(row[2])
+        elif total_votes_for_cand == "Correy":
+            correy_votes.append(row[2])
+        elif total_votes_for_cand == "Li":
+            li_votes.append(row[2])
+        elif total_votes_for_cand== "O'Tooley": 
+            otooley_votes.append(row[2])
+
+if len(khan_votes)>len(correy_votes):
+    print("Winner:Khan")
+elif len(khan_votes)>len(li_votes):
+    print("Winner:Khan")
+elif len(khan_votes)>len(otooley_votes):
+    print("Winner:Khan")
+elif len(correy_votes)>len(khan_votes):
+    print("winner: Correy")
+elif len(correy_votes)>len(li_votes):
+    print("Winner:Correy")
+elif len(correy_votes)>len(otooley_votes):
+    print("winner:Correy")
+elif len(li_votes)>len(khan_votes):
+    print("Winner: Li")
+elif len(li_votes)>len(correy_votes):
+    print("Winner:Li")
+elif len(li_votes)>len(otooley_votes):
+    print("Winner:Li")
+elif len(otooley_votes)>len(khan_votes):
+    print("Winner: O'Tooley")
+elif len(otooley_votes)>len(correy_votes):
+    print("Winner:O'Tooley")
+elif len(otooley_votes)>len(li_votes):
+    print("Winner:O'Tooley") 
+
+print(candidates)
+print(len(candidates_votes))
+print(len(correy_votes))
+print(len(khan_votes))
+print(len(li_votes))
+print(len(otooley_votes))
+
+
