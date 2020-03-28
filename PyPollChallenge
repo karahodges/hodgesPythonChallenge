@@ -2,7 +2,7 @@ import os
 import csv
 
 File = os.path.join("election_data.csv")
-#file_to_output= os.path.join("hodgesPythonChallenge")
+file_to_output= os.path.join("hodgesPythonChallenge")
 
 total_votes_for_cand = 0
 candidates = []
@@ -47,39 +47,40 @@ l_percent= round((l_total_votes/final_total)*100,0)
 o_total_votes= len(otooley_votes)
 o_percent= round((o_total_votes/final_total)*100,0)
 
-print("Election Results")
-print(f"---------------------------")
-print(f"Total Votes: {final_total}")
-print(f"---------------------------")
-print(f"Correy: {c_percent}% ({c_total_votes})")
-print(f"Khan: {k_percent}% ({k_total_votes})")
-print(f"Li: {l_percent}% ({l_total_votes})")
-print(f"O'Tooley: {o_percent}% ({o_total_votes})")
-print("---------------------------")
 if len(khan_votes)>len(correy_votes):
-    print("Winner:Khan")
+    print_winner=("Khan")
 elif len(khan_votes)>len(li_votes):
-    print("Winner:Khan")
+    print_winner=("Khan")
 elif len(khan_votes)>len(otooley_votes):
-    print("Winner:Khan")
+    print_winner=("Khan")
 elif len(correy_votes)>len(khan_votes):
-    print("winner: Correy")
+    print_winner=("Correy")
 elif len(correy_votes)>len(li_votes):
-    print("Winner:Correy")
+    print_winner=("Correy")
 elif len(correy_votes)>len(otooley_votes):
-    print("winner:Correy")
+    print_winner=("Correy")
 elif len(li_votes)>len(khan_votes):
-    print("Winner: Li")
+    print_winner=("Li")
 elif len(li_votes)>len(correy_votes):
-    print("Winner:Li")
+    print(_winner="Li")
 elif len(li_votes)>len(otooley_votes):
-    print("Winner:Li")
+    print_winner=("Li")
 elif len(otooley_votes)>len(khan_votes):
-    print("Winner: O'Tooley")
+    print_winner=("O'Tooley")
 elif len(otooley_votes)>len(correy_votes):
-    print("Winner:O'Tooley")
+    print_winner=("O'Tooley")
 elif len(otooley_votes)>len(li_votes):
-    print("Winner:O'Tooley") 
+    print_winner=("O'Tooley") 
 
-#with open(file_to_output,"a") as txt_file:
-    #txt_file.write(results)
+results= f"""Election Results
+Total Votes: {final_total}
+Correy: {c_percent}% ({c_total_votes})
+Khan: {k_percent}% ({k_total_votes})
+Li: {l_percent}% ({l_total_votes})
+OTooley: {o_percent}% ({o_total_votes})
+Winner: {print_winner}
+"""
+print(results)
+
+with open(file_to_output,"a") as txt_file:
+    txt_file.write(results)
