@@ -36,17 +36,6 @@ with open(File) as data:
         elif total_votes_for_cand== "O'Tooley": 
             otooley_votes.append(row[2])
 
-
-final_total= len(candidates_votes)
-c_total_votes= len(correy_votes)
-c_percent= round((c_total_votes/final_total)*100,0)
-k_total_votes= len(khan_votes)
-k_percent= round((k_total_votes/final_total)*100,0)
-l_total_votes= len(li_votes)
-l_percent= round((l_total_votes/final_total)*100,0)
-o_total_votes= len(otooley_votes)
-o_percent= round((o_total_votes/final_total)*100,0)
-
 if len(khan_votes)>len(correy_votes):
     print_winner=("Khan")
 elif len(khan_votes)>len(li_votes):
@@ -71,6 +60,16 @@ elif len(otooley_votes)>len(correy_votes):
     print_winner=("O'Tooley")
 elif len(otooley_votes)>len(li_votes):
     print_winner=("O'Tooley") 
+
+final_total= len(candidates_votes)
+c_total_votes= len(correy_votes)
+c_percent= round((c_total_votes/final_total)*100,0)
+k_total_votes= len(khan_votes)
+k_percent= round((k_total_votes/final_total)*100,0)
+l_total_votes= len(li_votes)
+l_percent= round((l_total_votes/final_total)*100,0)
+o_total_votes= len(otooley_votes)
+o_percent= round((o_total_votes/final_total)*100,0)
 
 results= f"""Election Results
 Total Votes: {final_total}
