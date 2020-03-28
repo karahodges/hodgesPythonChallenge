@@ -2,7 +2,7 @@ import os
 import csv
 
 File = os.path.join("budget_data.csv")
-
+file_to_output = os.path.join("hodgesPythonChallenge")
 total_months = 0
 total_profit = 0 
 monthly_avg_profit = 0 
@@ -47,3 +47,6 @@ Greatest Increase: {greatest_inc_month}, ${greatest_inc}
 Greatest Decrease: {greatest_dec_month}, ${greatest_dec}
 """
 print (analysis)
+
+with open(file_to_output,"a") as txt_file:
+    txt_file.write(analysis)
